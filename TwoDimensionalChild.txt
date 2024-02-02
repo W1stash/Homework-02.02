@@ -1,0 +1,84 @@
+using System;
+
+namespace makarov_task
+{
+    public sealed class TwoDimensionalChild : Parent
+    {
+        public TwoDimensionalChild(int a, int b) : base(a)
+        {
+            array = new int[a, b];
+            length = a;
+            columns = b;
+        }
+
+        public override void Initialize()
+        {
+            for(int p = 0; p < length; p++)
+            {
+                for(int i = 0; i < columns; i++)
+                {
+                    array[p, i] = rnd.Next(-150, 150);
+                }
+            }
+            Console.WriteLine("Двумерный массив инициализирован!");
+        }
+
+        public override void Show()
+        {
+            Console.WriteLine("Ваш массив:");
+            for (int p = 0; p < length; p++)
+            {
+                for (int i = 0; i < columns; i++)
+                {
+                    Console.Write($"{array[p, i]}   ");
+                }
+                Console.WriteLine();
+            }          
+        }
+
+        public override void Avg()
+        {
+            double sum = 0;
+            for (int p = 0; p < length; p++)
+            {
+                for (int i = 0; i < columns; i++)
+                {
+                    sum += array[p, i];
+                }                
+            }
+            Console.WriteLine($"Максимальное число в вашем массиве: {sum / length}");
+        }
+
+        public override void Minimum()
+        {
+            int min = array[0,0];
+            for (int p = 0; p < length; p++)
+            {
+                for (int i = 0; i < columns; i++)
+                {
+                    if(array[p, i] < min)
+                    {
+                        min = array[p, i];
+                    }
+                }                
+            }
+            Console.WriteLine($"Максимальное число в вашем массиве: {min}");
+        }
+
+        public override void Maximum()
+        {
+            int max = array[0,0];
+            for (int p = 0; p < length; p++)
+            {
+                for (int i = 0; i < columns; i++)
+                {
+                    if (array[p, i] > max)
+                    {
+                        max = array[p, i];
+                    }
+                }                
+            }
+            Console.WriteLine($"Максимальное число в вашем массиве: {max}");
+        }
+    }
+}

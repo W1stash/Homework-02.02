@@ -1,0 +1,84 @@
+using System;
+
+namespace makarov_task
+{
+    public abstract class Parent
+    {
+        public Random rnd = new Random();
+
+        protected dynamic array;
+        protected dynamic length;
+        protected dynamic columns;
+
+        public Parent(int a)
+        {
+            array = new int[a];
+            length = a;
+        }
+
+        public int this[int i]
+        {
+            set
+            {
+                array[i] = value;
+            }
+            get
+            {
+                return array[i];
+            }
+        }
+
+        public virtual void Initialize()
+        {            
+            for (int i = 0; i < length; i++)
+            {
+                array[i] = rnd.Next(-150, 150);
+            }
+        }
+
+        public virtual void Avg()
+        {
+            double sum = 0;
+            for (int i = 0; i < length; i++)
+            {
+                sum += array[i];
+            }
+            Console.Write(sum/length);
+        }
+
+        public virtual void Show()
+        {
+            foreach (int el in array)
+            {
+                Console.Write(el + " ");
+            }
+            Console.WriteLine();
+        }
+
+        public virtual void Maximum()
+        {
+            int max = array[0];
+            for (int i = 1; i < length; i++)
+            {
+                if (array[i] > max)
+                {
+                    max = array[i];
+                }
+            }
+            Console.Write(max);
+        }
+
+        public virtual void Minimum()
+        {
+            int min = array[0];
+            for (int i = 1; i < length; i++)
+            {
+                if (array[i] < min)
+                {
+                    min = array[i];
+                }
+            }
+            Console.Write(min);
+        }
+    }
+}

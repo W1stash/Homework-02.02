@@ -1,0 +1,46 @@
+using System;
+
+namespace makarov_task
+{
+    public sealed class OneDimensionalChild : Parent
+    {
+        public OneDimensionalChild(int a) : base(a)
+        {
+            array = new int[a];
+            length = a;
+        }
+
+        public override void Initialize()
+        {
+            base.Initialize();
+            Console.WriteLine("Массив инициализиован!");
+        }
+
+        public override void Avg()
+        {
+            Console.Write("Среднее число в массиве:");
+            base.Avg();
+            Console.WriteLine();
+        }
+
+        public override void Show()
+        {
+            Console.WriteLine("Ваш массив: ");
+            base.Show();
+        }
+
+        public override void Maximum()
+        {
+            Console.Write("Максимальное число: ");
+            base.Maximum();
+            Console.WriteLine();
+        }
+
+        public override void Minimum()
+        {
+            Console.Write("Минимальное число: ");
+            base.Minimum();
+            Console.WriteLine();
+        }
+    }
+}

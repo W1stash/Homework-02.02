@@ -1,0 +1,37 @@
+using System;
+
+namespace makarov_task
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Введите желаемую длину вашего массива:");
+            int c = int.Parse(Console.ReadLine());
+
+            OneDimensionalChild array = new OneDimensionalChild(c);
+            array.Initialize();
+            array.Show();
+
+            array.Avg();
+            array.Maximum();
+            array.Minimum();
+
+            Console.WriteLine("Введите желаемое количество стобцов вашего массива:");
+            int c1 = int.Parse(Console.ReadLine());
+            Console.WriteLine("Введите желаемую длину вашего массива:");
+            int k1 = int.Parse(Console.ReadLine());
+
+            TwoDimensionalChild array2 = new TwoDimensionalChild(c1, k1);
+
+            array2.Initialize();
+            array2.Show();
+
+            array2.Avg();
+            array2.Maximum();
+            array2.Minimum();
+
+            Console.ReadKey();
+        }
+    }
+}
